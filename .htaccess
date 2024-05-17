@@ -1,0 +1,1 @@
+ErrorDocument 404 http://localhost/file_manager/error.php

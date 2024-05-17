@@ -1,0 +1,22 @@
+body .menu {
+    box-shadow: 0 0 10px #f0f0f0 !important;
+    transform: scale(0);
+    transition: all .25s ease;
+    transform-origin: top left;
+    z-index: 999;
+}
+
+.menu .list-group-item {
+    cursor: pointer;
+}
+
+.menu .list-group-item:hover {
+    background: #f0f0f0;
+}
+
+.menu .list-group-item:active {
+    background: #f7f7f7;
+}
+body .menu.show {
+    transform: scale(1);
+}

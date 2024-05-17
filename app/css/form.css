@@ -1,0 +1,69 @@
+.login-form .inp-label {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 1rem;
+    font-size: .9em;
+    transition: all .25s ease;
+    font-weight: 600;
+}
+
+.btn-submit:disabled{
+    opacity: .4;
+}
+
+.btn-submit .ri-loader-3-fill{
+    animation: spin 1.5s ease infinite;
+    display: none;
+}
+
+.btn-submit.working .ri-arrow-right-fill{
+    display: none;
+}
+
+.btn-submit.working .ri-loader-3-fill{
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
+
+.login-form .form-control{
+    box-shadow: 0 0 2px #e0e0e0 !important;
+    font-size: 1em;
+}
+
+.login-form .form-control:is(.valid,:focus) ~ label{
+    top: -8px;
+    opacity: .7;
+    font-size: .7em;
+    background: #fff;
+    padding: 0 .5rem;
+    left: .5rem;
+}
+
+.form-control:read-only{
+    box-shadow: none !important;
+    background: #fcfbfb;
+}
+
+.row-hero{
+    background: url("http://localhost/file_manager/images/app-login-5948720-4922487.webp") center no-repeat;
+    background-size: contain;
+    height: 450px;
+}
+
+.form-header p{
+    font-size: .82em;
+    line-height: 17px;
+}
+
+.form-header h3 {
+    color: #505264;
+    font-weight: 700;
+}

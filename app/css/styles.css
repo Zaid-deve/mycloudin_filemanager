@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    user-select: none;
+    font-family: "Outfit",serif;
+    font-size: 1rem;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+*::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    min-height: 100vh;
+}

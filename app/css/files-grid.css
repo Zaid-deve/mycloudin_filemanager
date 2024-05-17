@@ -1,0 +1,96 @@
+.main{
+    height: calc(100vh - (90px + 36px));
+    overflow: auto;
+}
+
+.file-item{
+    text-decoration: none;
+}
+
+.file-item:hover{
+    background: #f8f8f8;
+}
+
+.file-item:active{
+    background: #f3f3f3;
+}
+
+.file-icon{
+    height: 75px;
+    border: 1px solid #eee;
+}
+
+.file-icon.file-icon.file-icon-dir {
+    background-color: rgb(85, 233, 164);
+}
+
+.file-icon.file-icon-dir .ri-folder-fill{
+    color: #fff;
+}
+
+.file-icon-media img{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.file-icon>i{
+    color: #42455a;
+    font-size: 44px;
+}
+
+.file-info .file-title {
+    font-size: .97em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-weight: 350;
+    color: #42455a;
+}
+
+.file-prop,.file-prop span{
+    font-size: .85em;
+    font-weight: 600;
+}
+
+.files-empty-row img{
+    max-height: 300px;
+}
+
+.files-empty-row h1 {
+    font-weight: 700;
+    font-size: 1.4em;
+}
+
+.loading-text::after{
+    content: '';
+    animation: fillContent 1.5s linear infinite;
+}
+
+@keyframes fillContent {
+    0% {
+        content: "";
+    }
+    33% {
+        content: ".";
+    }
+    66% {
+        content: "..";
+    }
+    100% {
+        content: "...";
+    }
+}
+
+@media (max-width:768px) {
+    .files-empty-row img {
+        height: 120px;
+    }
+}
+
+@media (max-width:576px) {
+    .main{
+        height: calc(100vh - 146px);
+    }
+}

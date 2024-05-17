@@ -1,0 +1,75 @@
+.vector-img {
+    background: url(http://localhost/file_manager/images/Uploading.gif) center no-repeat;
+    background-size: contain;
+    height: 350px;
+}
+
+.progress-outer{
+    max-width: none !important;
+}
+
+.header p{
+    font-size: .80em;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.header h3 {
+    font-weight: 700;
+    font-style: italic;
+    color: #5c607a;
+}
+
+.upload-outer {
+    cursor: pointer;
+    border: 2px solid;
+}
+
+.upload-outer .upload-icon{
+    font-size: 90px;
+}
+
+.btn-cancel-upload {
+    height: 45px;
+    width: 45px;
+}
+.btn-cancel-upload i{
+    font-size: 1.5em;
+}
+
+.progress-width{
+    overflow: hidden;
+    height: 8px;
+}
+
+.progress-info {
+    font-size: .8em;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.progress-icon i, .progress-status i{
+    font-size: 1.5em;
+    margin: auto;
+}
+
+.file-name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: inherit;
+}
+
+.progress-line-inner {
+    animation: move 1s linear infinite;
+}
+@keyframes move {
+    0% {
+        margin-left: 0;
+        opacity: 0;
+    }
+    100% {
+        margin-left: 100%;
+        opacity: 1;
+    }
+}
