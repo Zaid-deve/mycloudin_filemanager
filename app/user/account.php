@@ -5,17 +5,17 @@ require_once "../../db/conn.php";
 
 $uid = @getUserId();
 if (empty($uid)) {
-    header("Location: http://localhost/file_manager/app/user/login.php");
+    header("Location: " . getBaseURL() . "/app/user/login.php");
     die();
 }
 $qry = $conn->query("SELECT user_email,user_name,profile_img FROM users WHERE user_id = $uid");
 $email = $username = '';
-$profile = 'http://localhost/file_manager/images/6ff3cf9e-b0df-48ac-89a0-2df5894d5d02.avif`';
+$profile = getBaseURL() . '/images/6ff3cf9e-b0df-48ac-89a0-2df5894d5d02.avif`';
 if ($qry && $qry->num_rows) {
     $data = $qry->fetch_assoc();
     $email = base64_decode($data['user_email']);
     $username = base64_decode($data['user_name']);
-    if ($data['profile_img']) $profile = 'http://localhost/file_manager/profiles/' . $data['profile_img'];
+    if ($data['profile_img']) $profile = getBaseURL() . '/profiles/' . $data['profile_img'];
 }
 
 ?>
@@ -27,15 +27,15 @@ if ($qry && $qry->num_rows) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyCloud Account</title>
-    <link rel="shortcut icon" href="http://localhost/file_manager/images/6ff3cf9e-b0df-48ac-89a0-2df5894d5d02.avif">
+    <link rel="shortcut icon" href="<?php echo getBaseURL() ?>/images/6ff3cf9e-b0df-48ac-89a0-2df5894d5d02.avif">
 
     <!-- CDNS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="<?php echo getBaseURL() ?>/app/css/styles.css">
+    <link rel="stylesheet" href="<?php echo getBaseURL() ?>/app/css/form.css">
 </head>
 
 <body>
@@ -91,8 +91,8 @@ if ($qry && $qry->num_rows) {
     <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../js/functions.js"></script>
-    <script src="../js/account.js"></script>
+    <script src="<?php echo getBaseURL() ?>/app/js/functions.js"></script>
+    <script src="<?php echo getBaseURL() ?>/app/js/account.js"></script>
 
 </body>
 

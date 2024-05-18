@@ -82,8 +82,8 @@ if (isset($_POST)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="<?php echo getBaseURL() ?>/app/css/styles.css">
+    <link rel="stylesheet" href="<?php echo getBaseURL() ?>/app/css/form.css">
 </head>
 
 <body class="vh-100 vw-100 d-flex">
@@ -92,7 +92,7 @@ if (isset($_POST)) {
     <div class="container m-md-auto pt-5 pt-md-0">
         <div class="row align-items-center">
             <div class="col-md-7 d-md-block d-none">
-                <div class="row-hero" style="background-image: url('http://localhost/file_manager/images/Mobile user-amico.png') !important;height:350px"></div>
+                <div class="row-hero" style="background-image: url('<?php echo getBaseURL() ?>/images/Mobile user-amico.png') !important;height:350px"></div>
             </div>
             <div class="col-md-5">
                 <?php if (!isset($mailSent)) { ?>
@@ -134,7 +134,7 @@ if (isset($_POST)) {
                     <div class="p-4 rounded-5">
                         <h1 class="text-info">Thank Your For Contacting Us !</h1>
                         <p class="text-secondary">We Will Reach You Soon.</p>
-                        <a href="http://localhost/file_manager/" class="btn btn-primary py-2 px-5 d-block mx-auto"><b>Go To Home</b></a>
+                        <a href="<?php echo getBaseURL() ?>" class="btn btn-primary py-2 px-5 d-block mx-auto"><b>Go To Home</b></a>
                     </div>
                 <?php } ?>
             </div>
@@ -148,7 +148,7 @@ if (isset($_POST)) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- login script -->
-    <script src="../js/contact.js"></script>
+    <script src="<?php echo getBaseURL() ?>/app/js/contact.js"></script>
 
 </body>
 

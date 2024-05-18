@@ -1,5 +1,4 @@
 <?php
 
-header("Location:http://localhost/file_manager");
-
-?>
+require_once "app/php/functions.php";
+header("Location:" . getBaseURL());

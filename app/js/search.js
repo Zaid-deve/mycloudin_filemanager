@@ -21,7 +21,7 @@ $(function () {
                 }
 
                 data.qry = qry;
-                $.post("http://localhost/file_manager/app/includes/search.php", data, function (resp) {
+                $.post(`${baseURL}/app/includes/search.php`, data, function (resp) {
                     $(".output").html(resp);
                 });
             }, debounceDelay);

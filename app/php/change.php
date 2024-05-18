@@ -16,7 +16,7 @@ if (!empty($uid)) {
             $update_str = [];
             if (isset($_FILES['profileImg']) && $_FILES["profileImg"]['error'] == 0) {
                 $update_str[] = "profile_img = '{$_FILES['profileImg']['name']}'";
-                move_uploaded_file($_FILES['profileImg']['tmp_name'], "C:/xampp/htdocs/file_manager/profiles/".$_FILES['profileImg']['name']);
+                move_uploaded_file($_FILES['profileImg']['tmp_name'], getRoot() . "/profiles/" . $_FILES['profileImg']['name']);
             }
 
             if (!empty($_POST['uname'])) {
@@ -24,7 +24,7 @@ if (!empty($uid)) {
             }
 
             $qry = $conn->query("UPDATE users SET " . implode(",", $update_str) . " WHERE user_id = $uid");
-            if($qry && $conn->affected_rows) $output = "success";
+            if ($qry && $conn->affected_rows) $output = "success";
         }
     }
 }

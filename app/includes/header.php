@@ -10,19 +10,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="flex-grow: 0;">
                 <ul class="navbar-nav d-flex gap-md-2 ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-primary" aria-current="page" href="http://localhost/file_manager/">Home</a>
+                        <a class="nav-link active text-primary" aria-current="page" href="<?php echo getBaseURL() ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/file_manager/app/user/account.php">Account</a>
+                        <a class="nav-link" href="<?php echo getBaseURL() ?>/app/user/account.php">Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/file_manager/app/user/settings.php">Settings</a>
+                        <a class="nav-link" href="<?php echo getBaseURL() ?>/app/user/settings.php">Settings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/file_manager/app/user/contact.php">Contact Us</a>
+                        <a class="nav-link" href="<?php echo getBaseURL() ?>/app/user/contact.php">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/file_manager/app/user/logout.php">Logout</a>
+                        <a class="nav-link" href="<?php echo getBaseURL() ?>/app/user/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -33,10 +33,10 @@
                     <span class="col rounded-5 pt-1 bg-dark"></span>
                 </div>
             </button>
-            <a href="http://localhost/file_manager/app/user/upload.php<?php echo !empty($_GET['path']) ? "?path={$_GET['path']}" : '' ?>" class="btn btn-dark px-4 rounded-5 ms-3"><i class="ri-upload-fill"></i><b class="d-none d-sm-inline">&nbsp; Upload</b></a>
+            <a href="<?php echo getBaseURL() ?>/app/user/upload.php<?php echo !empty($_GET['path']) ? "?path={$_GET['path']}" : '' ?>" class="btn btn-dark px-4 rounded-5 ms-3"><i class="ri-upload-fill"></i><b class="d-none d-sm-inline">&nbsp; Upload</b></a>
 
         <?php } else { ?>
-            <a href="http://localhost/file_manager/app/user/login.php" class="btn btn-primary px-4 rounded-5 ms-3"><b>Login</b></a>
+            <a href="<?php echo getBaseURL() ?>/app/user/login.php" class="btn btn-primary px-4 rounded-5 ms-3"><b>Login</b></a>
         <?php } ?>
     </div>
 </nav>

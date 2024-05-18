@@ -57,7 +57,7 @@ $(function () {
         }
 
         $.ajax({
-            url: "http://localhost/file_manager/app/php/change.php",
+            url: `${baseURL}/app/php/change.php`,
             type: 'POST',
             data: data,
             processData: false,

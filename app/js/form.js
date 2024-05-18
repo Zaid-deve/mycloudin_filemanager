@@ -6,7 +6,7 @@ $(function () {
 
     reqOtp = function (email, callback) {
         if (email) {
-            $.post("http://localhost/file_manager/app/php/generateOtp.php", { email }, resp => {
+            $.post(`${baseURL}/app/php/generateOtp.php`, { email }, resp => {
                 if (typeof callback == "function") {
                     callback(resp)
                 }
@@ -18,7 +18,7 @@ $(function () {
 
     validateOtp = function (data, callback) {
         if (data.email && data.otp) {
-            $.post("http://localhost/file_manager/app/php/verifyOtp.php", data, resp => {
+            $.post(`${baseURL}/app/php/verifyOtp.php`, data, resp => {
                 if (typeof callback == "function") {
                     callback(resp)
                 }
@@ -87,7 +87,7 @@ $(function () {
         validateOtp({ email, otp, rem_me }, resp => {
             $(".btn-submit").attr("disabled", true).addClass('working')
             if (resp == "success") {
-                location.replace("http://localhost/file_manager/app/user/account.php");
+                location.replace(`${baseURL}/app/user/account.php`);
                 return
             } else if(resp == "AUTH_TOKEN_EXPIRE"){
                 alert("Otp has Been Expired Please Try Again !");

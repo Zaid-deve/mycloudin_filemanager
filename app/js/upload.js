@@ -90,7 +90,7 @@ $(function () {
         if(p) formData.append("path",p);
 
         let xhr = $.ajax({
-            url: 'http://localhost/file_manager/app/php/upload.php', // Your server-side upload script
+            url: `${baseURL}/app/php/upload.php`, // Your server-side upload script
             type: 'POST',
             data: formData,
             processData: false,

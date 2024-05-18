@@ -1,4 +1,10 @@
-const checkedFiles = new Set();
+const checkedFiles = new Set()
+
+let baseURL;
+baseURL = location.origin;
+if(location.host == "localhost"){
+    baseURL += "/file_manager"
+}
 
 
 function getParam(param) {
@@ -10,12 +16,12 @@ function getParam(param) {
 function displayEmptyDir() {
     return `<div class="row files-empty-row pt-5">
                 <div class="col-md-5">
-                    <img src="http://localhost/file_manager/images/e0cb5ba254f613287ab2a023e65159de.png" alt="#" class="d-block mx-auto ms-md-auto me-md-0">
+                    <img src="${baseURL}/images/e0cb5ba254f613287ab2a023e65159de.png" alt="#" class="d-block mx-auto ms-md-auto me-md-0">
                 </div>
                 <div class="col-md-7 text-center pt-md-5 pt-4">
                     <h1 class="text-secondary">No Files Yet !</h1>
                     <p class="form-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Nisi eaque voluptatem amet?</p>
-                    <a href="http://localhost/file_manager/app/user/upload.php${getParam("path") ? '?path=' + getParam("path") : ''}" class="btn btn-primary px-4 rounded-5"><b>Upload Now</b></a>
+                    <a href="${baseURL}/app/user/upload.php${getParam("path") ? '?path=' + getParam("path") : ''}" class="btn btn-primary px-4 rounded-5"><b>Upload Now</b></a>
                 </div>
             </div>`
 }
@@ -62,7 +68,7 @@ function deleteFile() {
     if (fileNames) {
         let files = fileNames.split(";");
         files.forEach(f => {
-            $.post("http://localhost/file_manager/app/php/deleteFile.php", { path: f }, function (resp) {
+            $.post(`${baseURL}/app/php/deleteFile.php`, { path: f }, function (resp) {
                 if (resp.trim() == "success") {
                     hideMenu();
                     $(`.files-grid .file-outer[data-filepath='${f}']`).remove();
@@ -89,7 +95,7 @@ function renameFile() {
         target.blur(function () {
             target.attr("contenteditable", false)
             if (target.text() && target.text() != file) {
-                $.post("http://localhost/file_manager/app/php/renameFile.php", { oldPath: file, newName: target.text() }, function (resp) {
+                $.post(`${baseURL}/app/php/renameFile.php`, { oldPath: file, newName: target.text() }, function (resp) {
                     if (resp.trim() != "success") {
                         target.text(file);
                     }
@@ -116,7 +122,7 @@ function copyLink() {
     if (menu.data("sharepath")) {
         const path = menu.data("sharepath");
         if (path) {
-            navigator.clipboard.writeText(`http://localhost/file_manager/app/view/share.php?link=${path}`);
+            navigator.clipboard.writeText(`${baseURL}/app/view/share.php?link=${path}`);
             menu.removeClass("show")
         }
     }

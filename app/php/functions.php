@@ -19,6 +19,23 @@ function setUserId($id, $cookie = false, $expiry = null)
     $_SESSION['user_id'] = $id;
 }
 
+function getBaseURL()
+{
+    if ($_SERVER['SERVER_NAME'] === "localhost") {
+        return "http://localhost/file_manager";
+    }
+    return "https://" . $_SERVER['SERVER_NAME'];
+}
+
+function getRoot()
+{
+    $root = $_SERVER['DOCUMENT_ROOT'];
+    if ($root != "public_html") {
+        return $root . "/file_manager";
+    }
+    return $root;
+}
+
 function logOutUser()
 {
     session_unset();
@@ -31,7 +48,7 @@ function logOutUser()
 function userDir($id)
 {
     $id = base64_encode($id);
-    $path = "C:/xampp/htdocs/file_manager/uploads/$id";
+    $path = getRoot() . "/uploads/$id";
     if (!file_exists($path)) {
         mkdir($path, 0777, true);
     }
@@ -86,8 +103,8 @@ function isVideo($path)
 function createThumbnail($path)
 {
     $ffmpegPath = 'C:\ffmpeg\bin\ffmpeg.exe'; // Update with the correct path to ffmpeg.exe
-    $thumbURL = "http://localhost/file_manager/thumbnails/" . basename($path) . ".jpg";
-    $thumbDir = "C:/xampp/htdocs/file_manager/thumbnails/";
+    $thumbURL = getBaseURL() . "/thumbnails/" . basename($path) . ".jpg";
+    $thumbDir =  getRoot() . "file_manager/thumbnails/";
     $thumbPath = $thumbDir . basename($path) . ".jpg";
     if (file_exists($thumbPath)) {
         return $thumbURL;
@@ -113,12 +130,12 @@ function displayFiles(array $files, string $searchQry = null)
         if ($f["ftype"] == "dir") {
             $class = "file-icon-dir";
         } else {
-            $loc = "http://localhost/file_manager/app/view/file.php";
+            $loc = getBaseURL() . "/app/view/file.php";
         }
 
         if ($f['isMedia']) {
             $vicon = "";
-            $upath = "http://localhost/file_manager/uploads/" . base64_encode(getUserId()) . "/" . $f['fpath'];
+            $upath = getBaseURL() . "/uploads/" . base64_encode(getUserId()) . "/" . $f['fpath'];
             if ($f['ftype'] == "video" && $f['thumbnailPath']) {
                 $upath = $f['thumbnailPath'];
                 $vicon = "ri-play-circle-fill";
@@ -137,7 +154,7 @@ function displayFiles(array $files, string $searchQry = null)
                          </div>";
         }
         $euid = base64_encode(getUserId());
-        $sharePath = base64_encode("C:/xampp/htdocs/file_manager/uploads/$euid/{$f['fpath']}");
+        $sharePath = base64_encode(getRoot()."/uploads/$euid/{$f['fpath']}");
 
         $output .= "<div class='col-md-4 position-relative file-outer' data-filepath='{$f['fpath']}' data-sharepath='{$sharePath}' oncontextmenu='toggleMenu(event)'>
                         <div class='file-check-outer d-none position-absolute top-0 start-0 h-100 w-100 z-4'>

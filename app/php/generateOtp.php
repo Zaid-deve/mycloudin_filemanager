@@ -71,7 +71,7 @@ if (!empty($_POST)) {
                 <body>
                     <div class='container'>
                         <img
-                            src='http://localhost/file_manager/images/6ff3cf9e-b0df-48ac-89a0-2df5894d5d02.avif'
+                            src='#'
                             alt='myCloud Logo' class='header-image'>
                         <h5>Hello,$uname</h5>
                         <p style='color: #42455a;'>Your one-time password (OTP) for myCloud

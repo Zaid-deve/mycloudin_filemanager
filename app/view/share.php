@@ -19,6 +19,7 @@ if ($uid) {
                     ob_clean();
                     flush();
                     readfile($path);
+                    die();
                 }
             }
         }

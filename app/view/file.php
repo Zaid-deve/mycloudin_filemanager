@@ -2,7 +2,7 @@
 
 require_once "../php/functions.php";
 if (!@getUserId()) {
-    header("Location:../user/login.php");
+    header("Location:" . getBaseURL() . "/app/user/login.php");
 }
 $uid = getUserId();
 
@@ -12,7 +12,7 @@ if (isset($_GET['path'])) {
 
     $fpath = "$path/$file";
     if (!file_exists($fpath)) {
-        header("Location:http://localhost/file_manager/error.php");
+        header("Location:" . getBaseURL() . "/error.php");
         die("requested files is been deleted");
     }
     $mime = mime_content_type($fpath);
