@@ -30,7 +30,7 @@ function getBaseURL()
 function getRoot()
 {
     $root = $_SERVER['DOCUMENT_ROOT'];
-    if ($root != "public_html") {
+    if (strpos($root,"C:/xampp/htdocs")!==false) {
         return $root . "/file_manager";
     }
     return $root;

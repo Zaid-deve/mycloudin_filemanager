@@ -1,6 +1,7 @@
 <?php
 
 require "../php/functions.php";
+require_once "../php/mailer.php";
 require "../../db/conn.php";
 $uid = @getUserId();
 
@@ -50,15 +51,13 @@ if (isset($_POST)) {
                     </body>
                    </html>";
 
-            $headers = array(
-                "From: $email",
-                "To:patelzaid12121@gmail.com",
-                "Reply-To:$email",
-                "Content-Type: text/html; charset=UTF-8",
-                "MIME-Version: 1.0"
+            $info = array(
+                "to" => "patelzaid12121@gmail.com",
+                "msg" => $msg,
+                "sub" => "New Mail Recieved"
             );
 
-            if (mail("patelzaid12121@gmail.com", $subject, $msg, implode("\r\n", $headers))) {
+            if(sendMail($info, true)){
                 $mailSent = true;
             }
         }
