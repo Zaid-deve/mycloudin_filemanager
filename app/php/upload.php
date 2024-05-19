@@ -21,7 +21,7 @@ if ($uid && isset($_FILES['file'])) {
         $tmpname = $file['tmp_name'];
 
 
-        if ($size < 50000000) {
+        if ($size < 32000000) {
             $tpath = $tpath.'/'.$name;
             if (move_uploaded_file($tmpname, $tpath)) {
                 $output = "success";

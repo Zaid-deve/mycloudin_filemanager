@@ -4,7 +4,7 @@ $(function () {
         activeXhrs = []
 
 
-    const maxFileSize = 50000000
+    const maxFileSize = 32000000
 
 
     $("#uploadSelInp").change(function () {
